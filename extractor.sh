@@ -387,6 +387,7 @@ elif [[ $(7z l -ba "$romzip" | grep tar.md5 | gawk '{ print $NF }' | grep AP_) ]
         done
     done
     rm -rf *.tar.md5
+    rm -rf *.img
     if [[ -e "$tmpdir/super.img.lz4" ]]; then
         echo "Extracting super.img.lz4"
         lz4_list=`find "$tmpdir" -type f -name "*.lz4" -printf '%P\n' | sort`
