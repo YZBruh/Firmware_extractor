@@ -366,6 +366,7 @@ elif [[ $(7z l -ba "$romzip" | grep tar.md5 | gawk '{ print $NF }' | grep AP_) ]
     7z e -y "$romzip" "$mainmd5" $cscmd5 2>/dev/null >> $tmpdir/zip.log
     mainmd5=$(7z l -ba "$romzip" | grep tar.md5 | gawk '{ print $NF }' | grep AP_ | sed 's|.*/||')
     cscmd5=$(7z l -ba "$romzip" | grep tar.md5 | gawk '{ print $NF }' | grep CSC_ | sed 's|.*/||')
+    rm -rf *.tar.md5
     echo "Extracting images..."
     for i in "$mainmd5" "$cscmd5"; do
         if [ ! -f "$i" ]; then
